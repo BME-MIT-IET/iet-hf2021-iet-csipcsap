@@ -55,11 +55,14 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers(HttpMethod.POST, "/api/users").permitAll()
                     .antMatchers(HttpMethod.GET, "/api/users").permitAll()
+                    .antMatchers(HttpMethod.DELETE, "/api/transfers").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/users/login").permitAll()
                     .anyRequest().authenticated()
                     .and().sessionManagement()
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+            http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+        } else {
+            http.csrf().disable();
         }
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
