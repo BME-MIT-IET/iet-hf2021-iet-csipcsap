@@ -6,6 +6,7 @@ import hu.bme.aut.freelancer_spring.model.enums.Status;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import org.dom4j.tree.FlyweightText;
 
 import javax.persistence.*;
 import java.time.LocalTime;
@@ -86,6 +87,12 @@ public class Package {
     public Package() {
         status = Status.WAITING;
         createdAt = new Date();
+    }
+
+    public Package(String name, int value, int weight) {
+        this.name = name;
+        this.value = value;
+        this.weight = weight;
     }
 
     public void setStatus(Status status) {
