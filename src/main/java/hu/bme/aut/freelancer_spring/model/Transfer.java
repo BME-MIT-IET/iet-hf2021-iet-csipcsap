@@ -112,7 +112,7 @@ public class Transfer {
     //Returns the sum of all the packages' weight.
     private double getPackagesWeightSum() {
         return packages.stream()
-                .mapToDouble(Package -> Package::getWeight)
+                .mapToDouble(Package::getWeight)
                 .sum();
     }
 
