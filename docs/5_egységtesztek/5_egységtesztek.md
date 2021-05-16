@@ -6,7 +6,7 @@ Az eredeti projektben nem voltak unit vagy integrációs tesztek. Ezt úgy is me
 
 A lefedettség számításához és HTML reprezentációjának generálásához a JaCoCo eszközt használtam, ami az Intellij IDEA-ba be van építve.
 
-Ahhoz, hogy javítjuk ezeken az eredményeken a TransferService-re egységteszteket, a TransferController-re pedig integrációs teszteket készítettem.
+Ahhoz, hogy javítsunk ezeken az eredményeken a TransferService-re egységteszteket, a TransferController-re pedig integrációs teszteket készítettem.
 
 Ezekben az úgynevezett AAA mintát követtem, ami segít a teszt függvényeket 3 részre osztani: arrange, act, assert.
 
@@ -44,3 +44,8 @@ A TransferController lefedettsége:
 
 Ahogy látjuk, jobb már a lefedettség az összkódban.
 
+## V2.0
+Készültek unit tesztek az EmailValidator működésének teszteléséhez is. Ezt az osztályt egy annotációnál használjuk, ami azt jelenti, hogy a kódban sok helyen megfordul. Emiatt kritikus, hogy a kódnak ezen része hiba nélkül működjön. A tesztosztály 2 tesztet tartalmaz: Egy ellenőrzi, hogy a helyes email címeket valóban helyes-nek bírálja-e el a validator, a ásik eset meg azt ellenőrzi, hogy a hibás input-okat valóban visszadobja-e validationError-ral.
+Kép a lefedettségről a tesztesetek bevezetése után:
+
+![](./coverage_summary_after_validation_tests.png)
