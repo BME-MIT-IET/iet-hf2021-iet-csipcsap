@@ -11,6 +11,7 @@ public class PasswordMatchesValidator
 
     @Override
     public void initialize(PasswordMatches constraintAnnotation) {
+        /*empty, passing PasswordMatches to ConstraintValidator*/
     }
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext context){

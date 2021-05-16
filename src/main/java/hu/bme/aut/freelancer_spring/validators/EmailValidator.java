@@ -12,6 +12,7 @@ public class EmailValidator
     private static final String EMAIL_PATTERN = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
     @Override
     public void initialize(ValidEmail constraintAnnotation) {
+        /*empty, passing ValidEmail to ConstraintValidator*/
     }
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context){

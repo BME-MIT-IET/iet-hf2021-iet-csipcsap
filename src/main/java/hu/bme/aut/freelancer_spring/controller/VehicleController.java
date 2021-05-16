@@ -18,22 +18,22 @@ public class VehicleController {
     private final VehicleService vehicleService;
 
     @GetMapping
-    ResponseEntity<List<Vehicle>> findAll() {
+    public ResponseEntity<List<Vehicle>> findAll() {
         return ResponseEntity.ok(vehicleService.findAll());
     }
 
     @PostMapping
-    ResponseEntity<Long> save(@RequestBody VehicleDto vehicleDto) {
+    public ResponseEntity<Long> save(@RequestBody VehicleDto vehicleDto) {
        return ResponseEntity.ok(vehicleService.save(vehicleDto));
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<Boolean> delete(@PathVariable Long id) {
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return ResponseEntity.ok(vehicleService.delete(id));
     }
 
     @GetMapping("/transfers/{id}")
-    ResponseEntity<List<Transfer>> getTransfers(@PathVariable Long id) {
+    public ResponseEntity<List<Transfer>> getTransfers(@PathVariable Long id) {
         return ResponseEntity.ok(vehicleService.getTransfers(id));
     }
 }

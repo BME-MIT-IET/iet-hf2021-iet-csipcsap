@@ -18,6 +18,7 @@ Az adatbáziselérés módosítása után az analízis lefutott a következő er
 ![](p12_vuln02.png)
 
 52 code smell
+
 ![](p07_smell.png)
 
 Ezek közül a súlyosabbak:
@@ -28,4 +29,10 @@ Ezek közül a súlyosabbak:
 ![](p16_smell_critical.png)
 5 darab *critical* szintű
 
+A Gradle bevezetése és a kapott hibák egy részének kijavítása után a következő eredmények születtek:
+
+![](p17.png)
+
 ## Eredmények, tanulságok
+
+A kódminőségen sikerült javítanom. Azt a következtetést vontam le, hogy bármely projekt esetén érdemes néhány alkalommal statikus analízist futtatnunk. Ezen a példán is kiderült, hogy a program olyan potenciális hibákat is felderíthet, amelyek nem szembeötlőek, de egy éles rendszernél komoly problémákat okozhatnak.

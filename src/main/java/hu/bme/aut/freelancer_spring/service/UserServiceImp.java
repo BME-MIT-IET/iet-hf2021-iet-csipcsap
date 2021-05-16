@@ -34,6 +34,7 @@ public class UserServiceImp implements UserService {
     private final AuthenticationManager authenticationManager;
     private final CustomUserDetailsService customUserDetailsService;
     private final JwtUtils jwtUtils;
+    private final String idErrorMessage = "User was not found with id: ";
 
     @Override
     public List<User> findAll() {
@@ -44,7 +45,7 @@ public class UserServiceImp implements UserService {
     public User findById(Long id) {
         var user = userRepository.findById(id);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         return user.get();
     }
 
@@ -85,7 +86,7 @@ public class UserServiceImp implements UserService {
     public boolean delete(Long id) {
         var user = userRepository.findById(id);
         if (user.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         userRepository.delete(user.get());
         return true;
@@ -96,7 +97,7 @@ public class UserServiceImp implements UserService {
     public boolean changeInsurance(Long id, boolean newInsurance) {
         var user = userRepository.findById(id);
         if (user.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         var u = user.get();
         u.setHasInsurance(newInsurance);
@@ -108,7 +109,7 @@ public class UserServiceImp implements UserService {
     public List<Package> getPackages(Long id) {
         var user = userRepository.findById(id);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         return user.get().getPackages();
     }
 
@@ -116,7 +117,7 @@ public class UserServiceImp implements UserService {
     public List<Transfer> getTransfers(Long id) {
         var user = userRepository.findById(id);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         return user.get().getTransfers();
     }
 
@@ -124,7 +125,7 @@ public class UserServiceImp implements UserService {
     public List<Vehicle> getVehicles(Long id) {
         var user = userRepository.findById(id);
         if (user.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User was not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         return user.get().getVehicles();
     }
 }

@@ -31,6 +31,7 @@ public class TransferServiceImp implements TransferService {
     private final PackageRepository packageRepository;
     private final ModelMapper modelMapper = new ModelMapper();
     private final DirectionService directionService;
+    private final String idErrorMessage = "Transfer not found with id: ";
 
     @Override
     public List<Transfer> findAll() {
@@ -67,7 +68,7 @@ public class TransferServiceImp implements TransferService {
     public boolean delete(Long id) {
         var transfer = transferRepository.findById(id);
         if (transfer.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Transfer not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         transferRepository.delete(transfer.get());
         return true;
@@ -77,7 +78,7 @@ public class TransferServiceImp implements TransferService {
     public List<Package> getPackages(Long id) {
         var transfer = transferRepository.findById(id);
         if (transfer.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Transfer not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         return transfer.get().getPackages();
     }
@@ -116,7 +117,7 @@ public class TransferServiceImp implements TransferService {
     public NavigationDto getNavigationUrl(Long id, LatLng origin) {
         var transfer = transferRepository.findById(id);
         if (transfer.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Transfer not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         var routes = directionService.getRouteForTransfer(transfer.get(), origin);
 

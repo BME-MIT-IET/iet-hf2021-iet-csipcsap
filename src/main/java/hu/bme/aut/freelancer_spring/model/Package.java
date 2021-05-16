@@ -6,7 +6,6 @@ import hu.bme.aut.freelancer_spring.model.enums.Status;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.dom4j.tree.FlyweightText;
 
 import javax.persistence.*;
 import java.time.LocalTime;

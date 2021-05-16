@@ -20,27 +20,27 @@ public class TransferController {
     private final TransferService transferService;
 
     @GetMapping
-    ResponseEntity<List<Transfer>> findAll() {
+    public ResponseEntity<List<Transfer>> findAll() {
         return ResponseEntity.ok(transferService.findAll());
     }
 
     @PostMapping
-    ResponseEntity<Long> save(@RequestBody TransferDto transferDto) {
+    public ResponseEntity<Long> save(@RequestBody TransferDto transferDto) {
         return ResponseEntity.ok(transferService.save(transferDto));
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<Boolean> delete(@PathVariable Long id) {
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return ResponseEntity.ok(transferService.delete(id));
     }
   
     @GetMapping("/packages/{id}")
-    ResponseEntity<List<Package>> getPackages(@PathVariable Long id) {
+    public ResponseEntity<List<Package>> getPackages(@PathVariable Long id) {
         return ResponseEntity.ok(transferService.getPackages(id));
     }
 
     @GetMapping("/navigationUrl/{id}")
-    ResponseEntity<NavigationDto> getNavigationUrl(@PathVariable Long id,
+    public ResponseEntity<NavigationDto> getNavigationUrl(@PathVariable Long id,
                                                    @RequestParam Double originLat,
                                                    @RequestParam Double originLong) {
         return ResponseEntity.ok(transferService.getNavigationUrl(id, new LatLng(originLat, originLong)));
