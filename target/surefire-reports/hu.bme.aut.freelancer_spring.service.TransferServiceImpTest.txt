@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: hu.bme.aut.freelancer_spring.service.TransferServiceImpTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.385 s - in hu.bme.aut.freelancer_spring.service.TransferServiceImpTest
