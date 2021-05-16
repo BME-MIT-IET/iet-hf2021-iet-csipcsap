@@ -31,6 +31,7 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test:5.3.4.RELEASE'
     testImplementation 'org.awaitility:awaitility:3.1.2'
     testImplementation 'org.mockito:mockito-core:2.28.2'
+    testImplementation 'org.mockito:mockito-inline:2.28.2'
     testImplementation 'org.mockito:mockito-junit-jupiter:2.28.2'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
@@ -41,14 +42,11 @@ version = '0.0.1-SNAPSHOT'
 description = 'Freelancer Spring'
 java.sourceCompatibility = JavaVersion.VERSION_11
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
 }
