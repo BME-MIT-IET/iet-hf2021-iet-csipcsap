@@ -1,7 +1,6 @@
 package hu.bme.aut.freelancer_spring.dto;
 
 import hu.bme.aut.freelancer_spring.model.enums.Size;
-import hu.bme.aut.freelancer_spring.model.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 

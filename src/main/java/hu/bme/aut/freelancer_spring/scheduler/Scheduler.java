@@ -20,7 +20,7 @@ public class Scheduler {
      */
     @Scheduled(cron = "0 0 3 * * *")
     @Transactional
-    public void RouteCalculateJob() {
+    public void routeCalculateJob() {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();

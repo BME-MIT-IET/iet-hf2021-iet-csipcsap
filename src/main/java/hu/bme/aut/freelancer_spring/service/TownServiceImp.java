@@ -17,6 +17,7 @@ import java.util.List;
 public class TownServiceImp implements TownService {
 
     private final TownRepository townRepository;
+    private final String idErrorMessage = "Town not found with id: ";
 
     @Override
     public List<Town> findAll() {
@@ -39,7 +40,7 @@ public class TownServiceImp implements TownService {
     public boolean delete(Long id) {
         var town = townRepository.findById(id);
         if (town.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Town not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         townRepository.delete(town.get());
         return true;
@@ -50,7 +51,7 @@ public class TownServiceImp implements TownService {
     public List<Package> getPackages(Long id) {
         var town = townRepository.findById(id);
         if (town.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Town not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         return town.get().getPackages();
     }
@@ -60,7 +61,7 @@ public class TownServiceImp implements TownService {
     public List<Transfer> getTransfers(Long id) {
         var town = townRepository.findById(id);
         if (town.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Town not found with id: " + id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, idErrorMessage + id);
         }
         return town.get().getTransfers();
     }

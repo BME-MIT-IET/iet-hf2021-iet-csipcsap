@@ -18,7 +18,10 @@ public enum Size {
     //y: the Y dimension of the package
     //z: the Z dimension of the package
     //price: the price of the package
-    private final int x, y, z, price;
+    private final int x;
+    private final int y;
+    private final int z;
+    private final int price;
 
     //Constructor
     Size(int x, int y, int z, int price) {

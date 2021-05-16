@@ -15,9 +15,9 @@ import java.util.function.Function;
 @Service
 public class JwtUtils {
 
-    private final String SECRET_KEY = "secret";
+    private static final String SECRET_KEY = "secret";
     @Getter
-    private final int expiresIn = 1000 * 60 * 60 * 10;
+    private static final int expiresIn = 1000 * 60 * 60 * 10;
 
     public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
